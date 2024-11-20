@@ -27,6 +27,11 @@ module.exports = {
       url: "https://sepolia-rollup.arbitrum.io/rpc",
       accounts: [process.env.MASTER_PRIVATE_KEY], 
     },
+
+    arbitrumOne: {
+      url: "https://arb1.arbitrum.io/rpc",
+      accounts: [process.env.MASTER_PRIVATE_KEY], 
+    },
   },
   etherscan: {
     apiKey: {

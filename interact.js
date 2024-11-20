@@ -32,7 +32,7 @@ const localBlockchain = async () => {
     console.log("Current owner:", currrentOwner);
 
     const currrentOwnerMain = await famMainV1.owner();
-    console.log("Current owner:", currrentOwnerMain);
+    console.log("Main Contarct owner:", currrentOwnerMain);
 
 
     let newOwnerAddress = "0xad57aAcad13d86Daa8aD55f0e18B1b62377c0496";
