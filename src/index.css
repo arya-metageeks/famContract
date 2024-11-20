@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700&family=Signika:wght@300;400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-white: #f5f5f5;  /* Off-white for better readability */
+  --clr-black: #4a2f29;  /* Dark Brown as the primary color */
+  --clr-grey: #8b572a;   /* Lighter Brown for secondary elements */
+  --clr-grey-2: #f7931a; /* Ethereum Orange for accent elements */
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--clr-black);  
+  /* Dark brown background */
+  color: var(--clr-white);  /* Off-white text color */
+}
+
+/* ------------------------------------------------------ */
+/* -- NAVIGATION -- */
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  background-color: var(--clr-black);  /* Dark brown background */
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  padding: 30px 75px;
+  grid-column: 1 / span 3;
+}
+
+.nav__brand img {
+  max-width: 105px;
+  margin-right: 10px;
+  height: 100px;
+}
+
+.nav__brand h1 {
+  color: var(--clr-white);  /* White text */
+  font-family: "Signika";
+  font-size: 1.50em;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.nav__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.nav__links li {
+  margin: 0 10px;
+}
+
+.nav__links li a {
+  text-decoration: none;
+  color: #e0a25c;  /* Lighter brown */
+  font-weight: 600;
+}
+
+.nav__links li a:hover {
+  color: var(--clr-grey-2);  /* Ethereum Orange on hover */
+}
+
+.nav__connect {
+  width: 175px;
+  height: 50px;
+  margin: 0 75px 0 auto;
+  background-color: var(--clr-grey-2);  /* Ethereum Orange background */
+  color: var(--clr-black);  /* Dark brown text */
+  border: none;
+  font-family: "Open Sans";
+  font-size: 1.10em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.nav__connect:hover {
+  background-color: var(--clr-grey);  /* Lighter brown on hover */
+  color: var(--clr-white);
+}
+
+/* ------------------------------------------------------ */
+/* -- HEADER -- */
+
+header {
+  background-image: url("./assets/browser.svg");
+  /* background-size: cover; Ensure the image covers the entire background */
+  background-position: right; /* Position the image on the right */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-color: var(--clr-black); /* Dark brown background */
+  min-height: 50vh;
+  position: relative;
+}
+
+
+.header__subtitle,
+.header__title {
+  color: var(--clr-white);  /* White text */
+  max-width: 450px;
+}
+
+.header__subtitle {
+  margin: 0 0 25px 75px;
+  padding-top: 100px;
+  font-family: "Open Sans";
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.header__title {
+  margin: 0 0 25px 75px;
+  font-family: "Merriweather";
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+}
+
+.header__search {
+  display: flex;
+}
+
+.header__input {
+  margin-left: 75px;
+  height: 60px;
+  padding: 0 20px;
+  min-width: 30%;
+  border: none;
+}
+
+.header__button {
+  width: 125px;
+  height: 60px;
+  background-color: var(--clr-grey-2);  /* Ethereum Orange background */
+  color: var(--clr-black);  /* Dark brown text */
+  border: none;
+  font-family: "Open Sans";
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.header__button:hover {
+  background-color: var(--clr-grey);  /* Lighter brown on hover */
+  color: var(--clr-white);
+}
+
+.header__search::placeholder {
+  font-family: "Open Sans";
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------ */
+/* -- CARDS -- */
+
+.cards__section {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+}
+
+.cards__section h2 {
+  margin-top: 50px;
+  font-family: "Merriweather";
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  color: var(--clr-white);  /* White text */
+}
+
+.cards__section p {
+  margin: 10px auto 25px;
+  text-align: center;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  height: 60px;
+  border: 1px solid var(--clr-grey-2);  /* Ethereum Orange border */
+  margin: 25px auto;
+  padding-left: 25px;
+  background-color: var(--clr-black);  /* Dark brown background */
+  position: relative;
+  transition: all 250ms ease;
+}
+
+.card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+.card__info h3 {
+  font-family: "Merriweather";
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-weight: 900;
+  color: var(--clr-white);  /* White text */
+}
+
+.card__info p {
+  font-family: "Merriweather";
+  font-size: 1.15rem;
+  font-weight: 300;
+  margin: 0;
+  color: var(--clr-white);  /* White text */
+}
+
+.card__info p small {
+  font-size: clamp(0.80rem, 2vw, 0.90rem);
+}
+
+.card__info p small span {
+  font-weight: 700;
+}
+
+.card__info p strong {
+  font-family: "Merriweather";
+  font-size: clamp(1.25rem, 3vw, 1.80rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+.card__button {
+  width: 125px;
+  height: 100%;
+  background-color: var(--clr-grey-2);  /* Ethereum Orange background */
+  color: var(--clr-black);  /* Dark brown text */
+  margin-left: auto;
+  border: none;
+  font-family: "Open Sans";
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 250ms ease;
+}
+
+.card__button:hover {
+  background-color: var(--clr-grey);  /* Lighter brown on hover */
+  color: var(--clr-white);
+}
+
+/* ------------------------------------------------------ */
+/* -- MEDIA QUERIES -- */
+
+@media screen and (max-width: 1200px) {
+  nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav__brand {
+    grid-column: 1;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  header {
+    background-image: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav__brand {
+    padding: 30px 50px;
+  }
+
+  .nav__connect {
+    margin: 0 50px 0 auto;
+  }
+}
+
+
+.pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.head{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 20px;
+}
+
+.price{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 20px;
+}
+
+.btn{
+  display: flex;
+  justify-content:space-between;
+  flex-direction: column;
+}
+
+.header__button_ {
+  width: 125px;
+  height: 60px;
+  background-color: var(--clr-grey-2);  /* Ethereum Orange background */
+  color: var(--clr-black);  /* Dark brown text */
+  border: none;
+  font-family: "Open Sans";
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 250ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
