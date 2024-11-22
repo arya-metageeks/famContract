@@ -30,6 +30,11 @@
       "address": "0xDa267f9cEebCc930A5C59dE40B15B0a20B082c1A",
       "txHash": "0x3e88a6803ff28b24797e97370b7f82e69e435dfc02458f8520ed7a9a1d732126",
       "kind": "transparent"
+    },
+    {
+      "address": "0xDbc0BAa4ecb73FD6f7EE0eA553fb3CE92402E30B",
+      "txHash": "0xb155d0ae0d670396c0d12ebc6458a754bc2d29e92f552c8d27e4aa5b2a88d8ff",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -319,6 +324,472 @@
           },
           "t_string_memory_ptr": {
             "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "5cc4a5161255a35f75158f27c1fcf616d02fcf0acd6d8fa4b310b8d74521174e": {
+      "address": "0xC37d5a903bB96dC90377007aDD67770308906eC4",
+      "txHash": "0xc807da962fa0dd25d0b16f33cc87adeb14d8304159b846d82213d03ed38b72f3",
+      "layout": {
+        "solcVersion": "0.8.20",
+        "storage": [
+          {
+            "label": "paymentToken",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(IERC20)662",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:11"
+          },
+          {
+            "label": "feeRecipient",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address_payable",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:14"
+          },
+          {
+            "label": "domains",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:17"
+          },
+          {
+            "label": "referralOwners",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:18"
+          },
+          {
+            "label": "hasMintedDomain",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)73_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_address_payable": {
+            "label": "address payable",
+            "numberOfBytes": "20"
+          },
+          "t_contract(IERC20)662": {
+            "label": "contract IERC20",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_address)": {
+            "label": "mapping(string => address)",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "1fd4250b2bdd16a00b2566518566885e6c73c542ea5a1fba73d1a3fb2bbbe3c3": {
+      "address": "0xFb69B8f1de747672f9552Fa6D861eC597e711055",
+      "txHash": "0xc8e437c8e3bbb922a5fa5777fd0d21c2a4cd9dca04f43e235f1b94a362193a91",
+      "layout": {
+        "solcVersion": "0.8.20",
+        "storage": [
+          {
+            "label": "paymentToken",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(IERC20)662",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:11"
+          },
+          {
+            "label": "feeRecipient",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address_payable",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:14"
+          },
+          {
+            "label": "domains",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:17"
+          },
+          {
+            "label": "referralOwners",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:18"
+          },
+          {
+            "label": "hasMintedDomain",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:19"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)73_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_address_payable": {
+            "label": "address payable",
+            "numberOfBytes": "20"
+          },
+          "t_contract(IERC20)662": {
+            "label": "contract IERC20",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_address)": {
+            "label": "mapping(string => address)",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string"
+          }
+        },
+        "namespaces": {
+          "erc7201:openzeppelin.storage.Ownable": [
+            {
+              "contract": "OwnableUpgradeable",
+              "label": "_owner",
+              "type": "t_address",
+              "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:24",
+              "offset": 0,
+              "slot": "0"
+            }
+          ],
+          "erc7201:openzeppelin.storage.Initializable": [
+            {
+              "contract": "Initializable",
+              "label": "_initialized",
+              "type": "t_uint64",
+              "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:69",
+              "offset": 0,
+              "slot": "0"
+            },
+            {
+              "contract": "Initializable",
+              "label": "_initializing",
+              "type": "t_bool",
+              "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:73",
+              "offset": 8,
+              "slot": "0"
+            }
+          ]
+        }
+      }
+    },
+    "3bc945b894d105a19533d450e36bf6cea97c6170042f9c08de7c892fdc998235": {
+      "address": "0xDef487850caB4e931a4b94D330C77130ef173039",
+      "txHash": "0x5e4fd7a26c6ea851113766eee6742b42931ae5d588a28fce0c7017fed44a003e",
+      "layout": {
+        "solcVersion": "0.8.20",
+        "storage": [
+          {
+            "label": "paymentToken",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(IERC20)662",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:11"
+          },
+          {
+            "label": "feeRecipient",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_address_payable",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:14"
+          },
+          {
+            "label": "domains",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:17"
+          },
+          {
+            "label": "referralOwners",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:18"
+          },
+          {
+            "label": "hasMintedDomain",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_mapping(t_address,t_bool)",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:19"
+          },
+          {
+            "label": "mintCount",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:45"
+          },
+          {
+            "label": "referralOwnersMintCount",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_mapping(t_string_memory_ptr,t_mapping(t_address,t_uint256))",
+            "contract": "FamDomainMintingV1",
+            "src": "contracts\\FamDomainMintingV1.sol:46"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_struct(InitializableStorage)73_storage": {
+            "label": "struct Initializable.InitializableStorage",
+            "members": [
+              {
+                "label": "_initialized",
+                "type": "t_uint64",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "_initializing",
+                "type": "t_bool",
+                "offset": 8,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_struct(OwnableStorage)13_storage": {
+            "label": "struct OwnableUpgradeable.OwnableStorage",
+            "members": [
+              {
+                "label": "_owner",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              }
+            ],
+            "numberOfBytes": "32"
+          },
+          "t_uint64": {
+            "label": "uint64",
+            "numberOfBytes": "8"
+          },
+          "t_address_payable": {
+            "label": "address payable",
+            "numberOfBytes": "20"
+          },
+          "t_contract(IERC20)662": {
+            "label": "contract IERC20",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_address)": {
+            "label": "mapping(string => address)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(string => mapping(address => uint256))",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
             "numberOfBytes": "32"
           },
           "t_string_storage": {

@@ -17,23 +17,18 @@ contract FamDomainMintingV1 is Initializable, OwnableUpgradeable {
     mapping(string => address) private domains; // Mapping of domain names to owners
     mapping(string => address) public referralOwners; // Mapping of referral codes to referrer addresses
     mapping(address => bool) public hasMintedDomain; // Mapping to track if an address has minted a domain
-    mapping(address => bool) public freeMintWhitelist; // Whitelisted users for free mint
-    mapping(address => bool) public discountMintWhitelist; // Whitelisted users for discount mint
+
+    // mapping(address => bool) public freeMintWhitelist; // Whitelisted users for free mint
+    // mapping(address => bool) public discountMintWhitelist; // Whitelisted users for discount mint
 
     event DomainMinted(address indexed user, string domain);
     event ReferralCodeCreated(address indexed referrer, string referralCode);
     event ReferralMinted(
         address indexed user,
         string domain,
-        address indexed referrer
+        address indexed referrer,
+        string referrerCode
     );
-
-    //     event ReferralMinted(
-    //     address indexed user,
-    //     string domain,
-    //     address indexed referrer,
-    //     uint256 fee
-    // );
 
     function initialize(
         address _paymentToken,
@@ -47,7 +42,24 @@ contract FamDomainMintingV1 is Initializable, OwnableUpgradeable {
         __Ownable_init(_initialOwner);
     }
 
+    uint256 public mintCount;
+    mapping(string => mapping(address => uint256))public referralOwnersMintCount; // Mapping of referral Code mint count
+
+    /**
+     * 
+     * Old Version
+     * 
+     
+     event ReferralMinted(
+        address indexed user,
+        string domain,
+        address indexed referrer,
+        uint256 fee
+    );
+
+
     // Batch whitelisting for free mint
+     
     function batchAddFreeMintWhitelist(
         address[] calldata _users
     ) external onlyOwner {
@@ -81,25 +93,6 @@ contract FamDomainMintingV1 is Initializable, OwnableUpgradeable {
         discountMintWhitelist[_user] = false;
     }
 
-    // Free mint function with whitelisting check
-    function freeMintDomain(string memory _domain) external {
-        require(domains[_domain] == address(0), "Domain already exists");
-        require(
-            !hasMintedDomain[msg.sender],
-            "You have already minted a domain"
-        );
-        require(
-            freeMintWhitelist[msg.sender],
-            "You are not whitelisted for free mint"
-        );
-
-        // Mint domain to the sender for free
-        domains[_domain] = msg.sender;
-        hasMintedDomain[msg.sender] = true;
-
-        emit DomainMinted(msg.sender, _domain);
-    }
-
     // Discount mint function with whitelisting check
     function discountMintDomain(
         string memory _domain
@@ -129,38 +122,27 @@ contract FamDomainMintingV1 is Initializable, OwnableUpgradeable {
         emit DomainMinted(msg.sender, _domain);
     }
 
-    // Mint with a referral code where referrer earns 50% of the minting fee
-    function mintDomainWithReferral(
-        string memory _domain,
-        string memory _referralCode
-        // uint256 _amount
-    ) external payable {
+    */
+
+    // Free mint function with whitelisting check
+    function freeMintDomain(string memory _domain) external onlyOwner {
         require(domains[_domain] == address(0), "Domain already exists");
-        require(
-            !hasMintedDomain[msg.sender],
-            "You have already minted a domain"
-        );
-        require(
-            referralOwners[_referralCode] != address(0),
-            "Invalid referral code"
-        );
+        // require(
+        //     !hasMintedDomain[msg.sender],
+        //     "You have already minted a domain"
+        // );
 
-        // require(msg.value >= _amount, "Insufficient ETH sent");
+        // require(
+        //     freeMintWhitelist[msg.sender],
+        //     "You are not whitelisted for free mint"
+        // );
 
-        // Calculate the discount fee (50% of the dynamic domainMintFee)
-        // uint256 referrerCut = _amount / 2;
-        // uint256 recipientCut = _amount - referrerCut; 
-        address referrer = referralOwners[_referralCode];
-
-        // payable(referrer).transfer(referrerCut);
-        // payable(feeRecipient).transfer(recipientCut);
-
-        // Mint the domain to the sender
+        // Mint domain to the sender for free
         domains[_domain] = msg.sender;
         hasMintedDomain[msg.sender] = true;
+        mintCount++;
 
-        emit ReferralMinted(msg.sender, _domain, referrer);
-        // emit ReferralMinted(msg.sender, _domain, referrer, referrerCut);
+        emit DomainMinted(msg.sender, _domain);
     }
 
     // Allow user to create their own referral code after minting a domain
@@ -177,11 +159,54 @@ contract FamDomainMintingV1 is Initializable, OwnableUpgradeable {
         emit ReferralCodeCreated(msg.sender, _referralCode);
     }
 
+    // Mint with a referral code where referrer earns 50% of the minting fee
+    function mintDomainWithReferral(
+        string memory _domain,
+        string memory _referralCode // uint256 _amount
+    ) external payable {
+        require(domains[_domain] == address(0), "Domain already exists");
+        require(
+            !hasMintedDomain[msg.sender],
+            "You have already minted a domain"
+        );
+        require(
+            referralOwners[_referralCode] != address(0),
+            "Invalid referral code"
+        );
+
+        // require(msg.value >= _amount, "Insufficient ETH sent");
+
+        // Calculate the discount fee (50% of the dynamic domainMintFee)
+        // uint256 referrerCut = _amount / 2;
+        // uint256 recipientCut = _amount - referrerCut;
+        address referrer = referralOwners[_referralCode];
+        referralOwnersMintCount[_referralCode][referrer]++;
+
+        // payable(referrer).transfer(referrerCut);
+        // payable(feeRecipient).transfer(recipientCut);
+
+        // Mint the domain to the sender
+        domains[_domain] = msg.sender;
+        hasMintedDomain[msg.sender] = true;
+        mintCount++;
+
+        emit ReferralMinted(msg.sender, _domain, referrer,_referralCode);
+        // emit ReferralMinted(msg.sender, _domain, referrer, referrerCut);
+    }
+
     // View function to check domain ownership
     function getDomainOwner(
         string memory _domain
     ) external view returns (address) {
         return domains[_domain];
+    }
+
+    function getReferralDetails(
+        string memory _referralCode
+    ) public view returns (address referrer, uint256 count) {
+        referrer = referralOwners[_referralCode];
+        require(referrer != address(0), "Invalid referral code");
+        count = referralOwnersMintCount[_referralCode][referrer];
     }
 
     // Update recipient and payment token

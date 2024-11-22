@@ -1,0 +1,101 @@
+[
+  {
+    "blockNumber": 261666798,
+    "user": "0x66D370C692939449C03e2A23db26C26972633faC",
+    "domain": "john.fam",
+    "referrer": "0x631D7a2884f05194a1099D69f77fbcB77E5370B9",
+    "fee": "2.5",
+    "transactionHash": "0xd32f002e6ea40969da84bfd588b896dc03c56185f647ff8c4150b0b54d57c458",
+    "timestamp": "2024-11-22T10:15:15.691Z"
+  },
+  {
+    "blockNumber": 261823111,
+    "user": "0xff3A429f3E1e37C15183E203A1F2aC49cf849566",
+    "domain": "satoshinakamoto.fam",
+    "referrer": "0x66D370C692939449C03e2A23db26C26972633faC",
+    "fee": "2.5",
+    "transactionHash": "0xa8cbc26fb564ba092a9c6968b5893144c7b923d1847afe80d3e52b13f3b05239",
+    "timestamp": "2024-11-22T10:15:15.691Z"
+  },
+  {
+    "blockNumber": 262051632,
+    "user": "0x9eB1Cb621DF3831e94718455C0c5C313874E1696",
+    "domain": "akshatsanwal.fam",
+    "referrer": "0x66D370C692939449C03e2A23db26C26972633faC",
+    "fee": "2.5",
+    "transactionHash": "0x7b1114f6628db1e628ea406473e66d84c37fe575ae5eabc48d7d58e17b9c74cc",
+    "timestamp": "2024-11-22T10:15:15.691Z"
+  },
+  {
+    "blockNumber": 262237271,
+    "user": "0x0Fa8adC439458CC2dA917bAe3dE37e69D9eE2Ef1",
+    "domain": "Modi.fam",
+    "referrer": "0x66D370C692939449C03e2A23db26C26972633faC",
+    "fee": "2.5",
+    "transactionHash": "0xb18ac1bea7fd30ffba0863302b04fbe813c583e0978ac6b086c365123e0f1301",
+    "timestamp": "2024-11-22T10:15:15.692Z"
+  },
+  {
+    "blockNumber": 262656897,
+    "user": "0xed20A97160dd6A9dFE669309A093B4d7944a6c34",
+    "domain": "hariom.fam",
+    "referrer": "0xBeA26C8a52A594140d00EC094F2657D2fC77F58a",
+    "fee": "2.5",
+    "transactionHash": "0x9d2391ed9e82ec8f0f2ba0d9e43ac3491386029e3301290b9823dd8c80957cc6",
+    "timestamp": "2024-11-22T10:15:15.692Z"
+  },
+  {
+    "blockNumber": 262664444,
+    "user": "0x489364193aC53df528008dcb457bfC4F35EdFcf6",
+    "domain": "simba.fam",
+    "referrer": "0x07FD890C891E20b8a76bAD7f803a45C98054F025",
+    "fee": "2.5",
+    "transactionHash": "0xbc1b9d2ff529e2614e2d64e20936f6a5c9f2ccc610eb82a06bb19c84c7c50456",
+    "timestamp": "2024-11-22T10:15:15.692Z"
+  },
+  {
+    "blockNumber": 262786137,
+    "user": "0xc79f60142E054f0b14BFc832610C14313269fB29",
+    "domain": "bani09inish.fam",
+    "referrer": "0x66D370C692939449C03e2A23db26C26972633faC",
+    "fee": "2.5",
+    "transactionHash": "0xe3b9afcdb929e0f4fa70056b10cc414a89c088c50d00112f00d8b157f42744f1",
+    "timestamp": "2024-11-22T10:15:15.693Z"
+  },
+  {
+    "blockNumber": 263969931,
+    "user": "0x21608753b8B02776f0bA83F32576751e9473b0BF",
+    "domain": "near.fam",
+    "referrer": "0x1a58a834ce89f337C2Ab4D76D66ef8acE161EF8C",
+    "fee": "2.5",
+    "transactionHash": "0x1a8e3ebb64f06e8b7918add920bd4c955da9902cb147cc8b58244c82079d759e",
+    "timestamp": "2024-11-22T10:15:15.693Z"
+  },
+  {
+    "blockNumber": 265203833,
+    "user": "0xac5Abbf2A00A0673A1D795C6B09ad8bEd20995db",
+    "domain": "Omkar.fam",
+    "referrer": "0x8D204867342e7787f650EC042F421D8633b6F59a",
+    "fee": "2.5",
+    "transactionHash": "0x195524fba2f327c6cc5ecd391a091b27c1b7d95a5ffee80b41f0795b7c5852c7",
+    "timestamp": "2024-11-22T10:15:15.693Z"
+  },
+  {
+    "blockNumber": 268807310,
+    "user": "0x76b2Fbf2e95d72FEb8E7F2F7De7aF41BA3c55c53",
+    "domain": "Xaktha.fam",
+    "referrer": "0x66D370C692939449C03e2A23db26C26972633faC",
+    "fee": "2.5",
+    "transactionHash": "0x2ba320f4b196c1eed593d6a3ed14df3c69046abc5fdc4c2f9fec9e64057198de",
+    "timestamp": "2024-11-22T10:15:15.693Z"
+  },
+  {
+    "blockNumber": 268811308,
+    "user": "0x31Be98D417bEA8218302fd0ee4a0A7cc5e87cE69",
+    "domain": "Lotus.fam",
+    "referrer": "0x66D370C692939449C03e2A23db26C26972633faC",
+    "fee": "2.5",
+    "transactionHash": "0xd5315408e8b4f106048854e83acd22952132424838fd66ce8e265000eb2929d6",
+    "timestamp": "2024-11-22T10:15:15.694Z"
+  }
+]

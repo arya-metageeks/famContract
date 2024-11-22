@@ -3,17 +3,26 @@ const { ethers, upgrades } = require("hardhat");
 
 async function main() {
   // Specify the proxy address of the already deployed contract
-  const proxyAddress = "0xDa267f9cEebCc930A5C59dE40B15B0a20B082c1A"; 
-  // const proxyAddress = "0x676b4a82C1e078D3E24F61c7B3aeAd7e6CAbC8EB"; 
+  // const proxyAddress = "0xDbc0BAa4ecb73FD6f7EE0eA553fb3CE92402E30B"; 
+  // const proxyAddress = "0x3457bc1902D20457E3d22816f467035d68E130B8"; 
+  // const proxyAddress = "0x43C5F84873A85dC45D10943DA572F931778B26E1"; 
+  const proxyAddress = "0x74410961dc2007425e7ab96b5c022cc2bc4ae53f"; 
+  // 0x5FC8d32690cc91D4c39d9d3abcBD16989F875707
 
-  // 0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+  
+  // DomainMintingUpgradable deployed to: 0x3457bc1902D20457E3d22816f467035d68E130B8
+  // Owner: 0x8FCAf20cC45CBD33F48389A0917011aCa4345393
+  
   // Get the contract factory for the new implementation
-  const FamDomainMinting = await ethers.getContractFactory("FamDomainMintingV1");
+  // const FamDomainMinting = await ethers.getContractFactory("FamDomainMintingV1");
+  // const proxy = await upgrades.forceImport(proxyAddress, FamDomainMinting);
 
-  const upgraded = await upgrades.upgradeProxy(proxyAddress, FamDomainMinting);
+  // const upgraded = await upgrades.upgradeProxy(proxyAddress, FamDomainMinting);
 
-
-  console.log("DomainMintingUpgradable has been upgraded to:", upgraded.target);
+  const adminAddress = await upgrades.erc1967.getAdminAddress(proxyAddress);
+  console.log("Admin (ProxyAdmin) Address:", adminAddress);
+  
+  // console.log("DomainMintingUpgradable has been upgraded to:", upgraded.target);
   console.log("New Implementation Address:", await upgrades.erc1967.getImplementationAddress(proxyAddress));
 
 }

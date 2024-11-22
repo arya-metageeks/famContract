@@ -1,85 +1,30 @@
-import { useEffect, useState } from 'react'
-import { ethers } from 'ethers'
+const { ethers } = require('ethers');
+require('dotenv').config();
 
-import Navigation from './components/Navigation';
 
-import votingDappABI from './abis/votinDapp.json';
+const ARBITRUM_TESTNET_RPC = process.env.ARBITRUM_TESTNET_RPC;
+const ARBITRUM_MAINNET_RPC = process.env.ARBITRUM_MAINNET_RPC;
+const MASTER_PRIVATE_KEY = process.env.MASTER_PRIVATE_KEY;
 
-import config from './config.json';
-import OwnerPage from './components/OwnerPage';
-import VoterPage from './components/VoterPage';
-import PollInfo from './components/PollInfo';
-// import Winner from './components/Winner';
+// const provider = new ethers.JsonRpcProvider(ARBITRUM_TESTNET_RPC);
+const providerMain = new ethers.JsonRpcProvider(ARBITRUM_MAINNET_RPC);
 
-const App = () => {
+// Proxy contract ABI with owner() method
+const proxyABI = [
+  "function owner() public view returns (address)"
+];
 
-  const [currentAccount, setCurrentAccount] = useState(null)
-  const [provider, setProvider] = useState(null)
+const proxyAddress = "0x74410961dc2007425e7ab96b5c022cc2bc4ae53f";
 
-  const [votingDappContract, setVotingDappContract] = useState(null)
-  const [contractOwner, setContractOwner] = useState(null)
+async function fetchOwner() {
+    const proxyContract = new ethers.Contract(proxyAddress, proxyABI, providerMain);
 
-  const [totalNoOfPolls, setTotalNoOfPoles] = useState(0);
-  // const [winner, setWinners] = useState("N/A");
-
-  const localBlockchainData = async () => {
     try {
-      if (window.ethereum == null) {
-        console.log("MetaMask not installed; using read-only defaults");
-        const provider = ethers.getDefaultProvider();
-        setProvider(provider);
-      } else {
-
-        const provider = new ethers.BrowserProvider(window.ethereum);
-        const signerAcc = await provider.getSigner();
-        console.log("signer", signerAcc.address);
-        setProvider(provider);
-
-        const network = await provider.getNetwork();
-        const chainIdString = network.chainId.toString();
-
-        //Contract Deployment
-        const votinDappContract = new ethers.Contract(config[chainIdString].votingDapp.address, votingDappABI, provider)
-        const votinDappContractAddress = await votinDappContract.getAddress()
-
-        console.log(`votinDappContractAddress: ${votinDappContractAddress}`)
-        setVotingDappContract(votinDappContract)
-
-        const owner = await votinDappContract.i_owner();
-        setContractOwner(owner);
-        console.log(`Owner:${contractOwner}`)
-
-        const totalNoOfPolls = await votinDappContract.getTotalPolls();
-        console.log(`totalNoOfPolls: ${totalNoOfPolls}`)
-        setTotalNoOfPoles(totalNoOfPolls);
-
-        window.ethereum.on("accountsChanged", async () => {
-          const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
-          const account = ethers.getAddress(accounts[0]);
-          setCurrentAccount(account);
-        });
-      }
+        const ownerAddress = await proxyContract.owner();
+        console.log("Owner Address:", ownerAddress);
     } catch (error) {
-      console.log("Error", error)
-
+        console.error("Error fetching owner:", error);
     }
-  }
-
-  useEffect(() => {
-    localBlockchainData();
-  }, []);
-
-  return (
-    <>
-        <Navigation currentAccount={currentAccount} setCurrentAccount={setCurrentAccount} />
-        <PollInfo votingDappContract={votingDappContract} totalNoOfPolls={totalNoOfPolls}/>
-          {currentAccount == contractOwner ?
-          <OwnerPage votingDappContract={votingDappContract} provider={provider} /> :  
-          <VoterPage votingDappContract={votingDappContract} provider={provider} totalNoOfPolls={totalNoOfPolls}/>
-        }
-        {/* <Winner winner={winner}/> */}
-    </>
-  );
 }
 
-export default App;
+fetchOwner();

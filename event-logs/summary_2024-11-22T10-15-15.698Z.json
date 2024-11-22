@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2024-11-22T10:15:15.698Z",
+    "totalEvents": 80,
+    "domainMintedCount": 36,
+    "referralCodesCount": 27,
+    "referralMintedCount": 11,
+    "fromBlock": 0,
+    "toBlock": 277097031,
+    "contractAddress": "0x74410961dc2007425E7Ab96B5c022cC2BC4AE53f"
+  }
+]

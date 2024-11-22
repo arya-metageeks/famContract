@@ -1,0 +1,11 @@
+Connected to network: {"name":"arbitrum","chainId":"42161"}
+Contract address: 0x74410961dc2007425E7Ab96B5c022cC2BC4AE53f
+Current block: 277096443
+Fetching events from block: 0
+Fetching logs...
+Total logs found: 80
+
+=== DomainMinted Events ===
+Found 36 DomainMinted events
+
+Error occurred: log is not a function

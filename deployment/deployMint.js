@@ -19,10 +19,6 @@ async function main() {
     [paymentTokenAddress, feeRecipientAddress, initialOwnerAddress],
     {
       initializer: 'initialize',
-      kind: 'uups', // Specify the proxy kind
-      unsafeAllow: ['constructor'], // Only if needed
-      timeout: 0, // Disable timeout
-      pollingInterval: 5000, // Check every 5 seconds
     }
   );
 
